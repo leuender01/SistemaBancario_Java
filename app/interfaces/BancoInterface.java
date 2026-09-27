@@ -1,7 +1,5 @@
 package app.interfaces;
 
-interface BancoInterface {
-    double getValue();
-    boolean Login(String name);
-    void Secao();
+public interface BancoInterface {
+    boolean genConta(String name);
 }

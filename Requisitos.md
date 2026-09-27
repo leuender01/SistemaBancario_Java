@@ -2,11 +2,16 @@
 
 ### Requisitos Funcionais
 
-- Pode **Sacar** qualquer **Valor**.
-- Pode **Depositar** qualquer **Valor**.
+#### Banco
+- **Gerencia** as contas
 - Pode **Criar**  uma ou mais **Contas**.
 - Tolerante a  **falhas**.
 
+#### Conta
+- Pode **Sacar** qualquer **Valor**.
+- Pode **Depositar** qualquer **Valor**.
+
 ### Requisitos Nao funcionais
 
-- Gerar **Extratos**, Individuis.
+#### Conta
+- Gerar **Extratos**, Individuais.
