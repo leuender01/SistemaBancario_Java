@@ -11,7 +11,7 @@ public class ContaPoupanca extends Conta{
     public ContaPoupanca(String name, int conta, int agencia)
     {
         super(name, agencia, conta);
-        this.dataNext = getData();
+        nextData();
     }
     private void nextData()
     {

@@ -2,8 +2,7 @@ package app.interfaces;
 
 
 public interface BancoInterface {
-    boolean genConta(String name);
-    boolean genConta(String name, String dataAniversario);
-    void Secion();
+    boolean genContaPoupanca(String name);
+    boolean genContaCorrente(String name);
     String getSaldoContas();
 }

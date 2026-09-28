@@ -1,9 +1,21 @@
 package app;
 
 public class Menu{
-    private static final String[] bancoOpcoes = {"[0] Criar-Conta", "[1] Entrar Conta", "[2] Saldo do Banco"};
-    private static final String[] contaCorrenteOpcoes = {"[0] Criar-Conta", "[1] Entrar Conta", "[2] Saldo do Banco"};
-    private static final String[] contaPoupancaOpcoes = {"[0] Criar-Conta", "[1] Entrar Conta", "[2] Saldo do Banco"};
+    private static final String[] bancoOpcoes = {
+        "[0] Criar-Conta-Poupança",
+        "[1] Criar-Conta-Corrente",
+        "[2] Entrar Conta-Corrente",
+        "[3] Entrar Conta-Poupança",
+        "[4] Saldo do Banco",
+        "[5] Listar Banco",
+        "[6] Sair"};
+    private static final String[] contaConta = {
+        "[0] Sacar",
+        "[1] Depositar",
+        "[2] Saldo",
+        "[3] Extrato",
+        "[4] info",
+        "[5] Sair"};
 
     static public void optionsBanco()
     {
@@ -13,18 +25,9 @@ public class Menu{
         }
     }
 
-    static public void optionsContaCorrente()
+    static public void optionsConta()
     {
-        for(String conta : contaCorrenteOpcoes)
-        {
-            System.out.println(conta);
-        }
-        
-    }
-
-    static public void optionsContaPoupanca()
-    {
-        for(String conta : contaPoupancaOpcoes)
+        for(String conta : contaConta)
         {
             System.out.println(conta);
         }

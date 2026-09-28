@@ -2,6 +2,9 @@ package app;
 import java.util.HashMap;
 import java.util.Map;
 import app.interfaces.BancoInterface;
+import app.Execoes.ContaJaExisteExeption;
+import app.Execoes.ContaNaoExisteExeption;
+import app.Execoes.NomeGrandeExeption;
 
 public class Banco implements BancoInterface{
     private int agencia;
@@ -15,8 +18,9 @@ public class Banco implements BancoInterface{
     }
 
     @Override
-    public boolean genConta(String name) {
-        if(this.contasCorrrentes.containsKey(name)) return false;
+    public boolean genContaCorrente(String name) throws ContaJaExisteExeption, NomeGrandeExeption
+    {
+        if(this.contasCorrrentes.containsKey(name)) throw new ContaJaExisteExeption();
         ContaCorrente newConta = new ContaCorrente(name, this.agencia, this.lastContaCorrente);
         this.contasCorrrentes.put(name, newConta);
         this.lastContaCorrente++;
@@ -24,9 +28,10 @@ public class Banco implements BancoInterface{
     }
     
     @Override
-    public boolean genConta(String name, String dataAniversario) {
-        if(this.contasPoupanca.containsKey(name)) return false;
-        ContaPoupanca newConta = new ContaPoupanca(name, this.agencia, this.lastContaPoupanca, dataAniversario);
+    public boolean genContaPoupanca(String name) throws ContaJaExisteExeption, NomeGrandeExeption 
+    {
+        if(this.contasPoupanca.containsKey(name)) throw new ContaJaExisteExeption();
+        ContaPoupanca newConta = new ContaPoupanca(name, lastContaPoupanca, agencia);
         this.contasPoupanca.put(name, newConta);
         this.lastContaPoupanca++;
         return true;
@@ -46,8 +51,22 @@ public class Banco implements BancoInterface{
         return "Saldo Contas Poupança: " + resultContaPoupanca + "\nSaldo Contas Correntes: " + resultContaCorrente;
     }
     @Override
-    public void Secion() {
-        Menu.optionsBanco();
-        
+    public String toString() {
+        return "Contas Correntes: " + this.contasCorrrentes.toString() + "\n\r Contas Poupança: " + this.contasPoupanca.toString();
+    }
+
+
+    public ContaPoupanca loginContaPoupanca(String name) throws ContaNaoExisteExeption
+    {
+        ContaPoupanca conta =  this.contasPoupanca.get(name);
+        if(conta == null) throw new ContaNaoExisteExeption();
+        return conta;
+    }
+
+    public ContaCorrente loginContaCorrente(String name) throws ContaNaoExisteExeption
+    {
+        ContaCorrente conta =  this.contasCorrrentes.get(name);
+        if(conta == null) throw new ContaNaoExisteExeption();
+        return conta;
     }
 }
