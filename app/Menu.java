@@ -12,10 +12,9 @@ public class Menu{
     private static final String[] contaConta = {
         "[0] Sacar",
         "[1] Depositar",
-        "[2] Saldo",
-        "[3] Extrato",
-        "[4] info",
-        "[5] Sair"};
+        "[2] Extrato",
+        "[3] info",
+        "[4] Sair"};
 
     static public void optionsBanco()
     {

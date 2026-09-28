@@ -44,6 +44,7 @@ public class ContaPoupanca extends Conta{
             super.extrato.push("Valor Insuficiente " + value + " maior que o saldo " +  " [ " + getData() + " ]");
             throw new SaldoInsuficienteExeption();
         }
+        this.balance -= value;
         super.extrato.push("Value - R$ " + value + " [ " + getData() + " ]");
         return true;
     }
